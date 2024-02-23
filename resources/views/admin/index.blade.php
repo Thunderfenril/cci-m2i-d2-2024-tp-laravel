@@ -19,9 +19,8 @@
                 <th>{{ $user->name }}</th>
                 <th>{{ $user->email }}</th>
                 <td>
-                    <a class="btn btn-primary d-block m-1" href="{{ route('user.show', $user) }}">{{ __('Show') }}</a>
-                    <a class="btn btn-warning d-block m-1" href="{{ route('user.edit', $user) }}">{{ __('Edit') }}</a>
-                    <form action="{{ route('user.delete', $user) }}" method="post">
+                    <a class="btn btn-primary d-block m-1" href="{{ route('Admin.show', $user->id) }}">{{ __('Show') }}</a>
+                    <form action="{{ route('Admin.destroy', $user->id) }}" method="post">
                         @csrf
                         @method('DELETE')
                         <button class="btn btn-danger d-block w-100" type="submit">{{ __('Delete') }}</button>
