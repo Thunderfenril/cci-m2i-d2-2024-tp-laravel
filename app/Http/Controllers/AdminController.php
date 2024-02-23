@@ -60,7 +60,7 @@ class AdminController extends  Controller {
     }
 
     function login(Request $request) {
-        if($request->password === "ThePepina67") {
+        if($request->password === "ThePepina67") { //Un autre système de vérification est nécessaire
             return redirect("Admin.index");
         }
     }
