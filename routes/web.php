@@ -2,6 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 
+use \App\Http\Controllers\{
+    Controller,
+    AdminController,
+};
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,21 +18,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    echo (new \App\Http\Controllers\Controller())->index();
-});
-Route::get('/assosier', function () {
-    echo (new \App\Http\Controllers\AssocierControlleurs)->index();
-});
-Route::get('/assosier-creer', function () {
-    echo (new \App\Http\Controllers\AssocierControlleurs)->create();
-});
-Route::post('/assosier-creer-2', function () {
-    echo (new \App\Http\Controllers\AssocierControlleurs)->store();
-});
-Route::get('/assosier-show', function () {
-    echo (new \App\Http\Controllers\AssocierControlleurs)->show();
-});
-Route::get('/assosier-detruite', function () {
-    echo (new \App\Http\Controllers\AssocierControlleurs)->delete();
-});
+Route::get('/', [Controller::class,'index'])->name('Accueil');
+
+Route::get('/about', [Controller::class,'about'])->name('About');
+
+Route::get('/contact', [Controller::class,'contact'])->name('Contact');
+
+Route::get('/admin', [AdminController::class,'index'])->name('Admin.index');
+
+Route::get('/admin/creer', [AdminController::class,'create'])->name('Admin.create');
+
+Route::post('/admin/store', [AdminController::class,'store'])->name('Admin.store');
+
+Route::get('/admin/show/{id}', [AdminController::class,'show'])->name('Admin.show');
+
+Route::delete('/admin/detruite/{id}', [AdminController::class,'destroy'])->name('Admin.destroy');

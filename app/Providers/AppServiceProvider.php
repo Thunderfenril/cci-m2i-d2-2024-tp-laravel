@@ -20,10 +20,5 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $var = (new Controller())->test();
-        dump($var);
-        $var = new RouteServiceProvider();
-        $var->get('/');
-        dd('test this');
     }
 }

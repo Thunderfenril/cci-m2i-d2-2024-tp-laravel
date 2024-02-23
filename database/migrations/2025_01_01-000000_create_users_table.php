@@ -12,7 +12,7 @@ return new class extends Migration
     function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->string('id')->primary(); // todo : this is a uuid (but the model not working, "autoincrement error")
+            $table->id();
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
@@ -25,5 +25,5 @@ return new class extends Migration
     /**
      * Reverse the migrations.
      */
-    function down(){ Schema::dropIfExists('password_reset_tokens'); }
+    function down(){ Schema::dropIfExists('users'); }
 };
